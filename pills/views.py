@@ -36,7 +36,7 @@ def request_pills_oldman(request):
 
     url = f"http://apis.data.go.kr/1470000/DURPrdlstInfoService/getPwnmTabooInfoList?ServiceKey={serviceKey}&itemName={answer_oldman_pill}"
     responses = requests.get(url)
-    response = BeautifulSoup(responses.content, 'lxml-xml')
+    response = BeautifulSoup(responses.content, 'lxml')
     cnt = response.find('totalCount')
     cnt = int(cnt.text)
     
@@ -74,7 +74,7 @@ def request_pills_pregnant(request):
         
     url = f"http://apis.data.go.kr/1470000/DURPrdlstInfoService/getPwnmTabooInfoList?ServiceKey={serviceKey}&itemName={answer_pregnant_pill}"
     responses = requests.get(url)
-    response = BeautifulSoup(responses.content, 'lxml-xml')
+    response = BeautifulSoup(responses.content, 'lxml')
     cnt = response.find('totalCount')
     cnt = int(cnt.text)
     
@@ -112,13 +112,13 @@ def request_pills_interaction(request):
     # answer_pills_a 입력하여 검사
     url = f"http://apis.data.go.kr/1470000/DURPrdlstInfoService/getUsjntTabooInfoList?ServiceKey={serviceKey}&itemName={answer_pills_a}"
     responses = requests.get(url)
-    response = BeautifulSoup(responses.content, 'lxml-xml')
+    response = BeautifulSoup(responses.content, 'lxml')
     pillset = response.findAll('MIXTURE_ITEM_NAME')
     
     # answer_pills_b 입력하여 검사
     url = f"http://apis.data.go.kr/1470000/DURPrdlstInfoService/getUsjntTabooInfoList?ServiceKey={serviceKey}&itemName={answer_pills_b}"
     responses = requests.get(url)
-    response = BeautifulSoup(responses.content, 'lxml-xml')
+    response = BeautifulSoup(responses.content, 'lxml')
     pillset += response.findAll('MIXTURE_ITEM_NAME')
     
     for r in pillset:
