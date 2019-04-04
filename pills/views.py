@@ -35,10 +35,10 @@ def request_pills_oldman(request):
         answer_oldman_pill = nugu_body.get("action").get('parameters').get('pills_a').get('value')
 
     url = f"http://apis.data.go.kr/1470000/DURPrdlstInfoService/getPwnmTabooInfoList?ServiceKey={serviceKey}&itemName={answer_oldman_pill}"
-    responses = requests.get(url)
-    response = BeautifulSoup(responses.content, 'lxml')
-    cnt = response.find('totalCount')
-    cnt = int(cnt.text)
+responses = requests.get(url)
+response = BeautifulSoup(responses.content, 'lxml')
+cnt = response.find('totalcount')
+cnt = int(cnt.text)
     
     if cnt >= 1:
         answer_oldman = '권장하지 않습니다. 전문의와 상의하세요.'
@@ -75,7 +75,7 @@ def request_pills_pregnant(request):
     url = f"http://apis.data.go.kr/1470000/DURPrdlstInfoService/getPwnmTabooInfoList?ServiceKey={serviceKey}&itemName={answer_pregnant_pill}"
     responses = requests.get(url)
     response = BeautifulSoup(responses.content, 'lxml')
-    cnt = response.find('totalCount')
+    cnt = response.find('totalcount')
     cnt = int(cnt.text)
     
     if cnt >= 1:
