@@ -125,14 +125,14 @@ def request_pills_oldman_complex(request):
     elif flag_a + flag_b == 2 : # 둘다 금기약품
         answer_oldman_pill_a = '65세 이상'
         answer_oldman_pill_b = '말씀하신 약들'
-        answer_oldman_back = '드셔도 괜찮아요.'
+        answer_oldman_back = '권장하지 않습니다.'
         answer_oldman_front = ''
     else : # 둘다 안전한 약품
         if warning == True:
             answer_oldman_interaction_complex = '두 약품은 병용을 권장하지 않습니다. 전문의와 상의하세요.'
         else:
             answer_oldman_interaction_complex = '두 약품은 함께 드셔도 괜찮아요.'
-        answer_oldman_pill_a = '65세 이상'
+        answer_oldman_pill_a = '주인님'
         answer_oldman_pill_b = '말씀하신 약들'
         answer_oldman_back = '드셔도 괜찮아요.'
         answer_oldman_front = ''
@@ -174,7 +174,7 @@ def request_pills_pregnant(request):
     if flag == 1:
         answer_pregnant = '권장하지 않습니다. 전문의와 상의하세요.'
     else:
-        answer_pregnant = '임산부가 드셔도 괜찮아요.'
+        answer_pregnant = '주인님이 드셔도 괜찮아요.'
     
         
     result = nugu_body
@@ -236,14 +236,14 @@ def request_pills_pregnant_complex(request):
     elif flag_a + flag_b == 2 : # 둘다 금기약품
         answer_pregnant_pill_a = '임산부'
         answer_pregnant_pill_b = '말씀하신 약들'
-        answer_pregnant_back = '드시면 안됩니다.'
+        answer_pregnant_back = '권장하지 않습니다.'
         answer_pregnant_front = ''
     else : # 둘다 안전한 약품
         if warning == True:
             answer_pregnant_interaction_complex = '두 약품은 병용을 권장하지 않습니다. 전문의와 상의하세요.'
         else:
             answer_pregnant_interaction_complex = '두 약품은 함께 드셔도 괜찮아요.'
-        answer_pregnant_pill_a = '임산부'
+        answer_pregnant_pill_a = '주인님'
         answer_pregnant_pill_b = '말씀하신 약들'
         answer_pregnant_back = '드셔도 괜찮아요.'
         answer_pregnant_front = ''
